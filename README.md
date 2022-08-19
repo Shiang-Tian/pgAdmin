@@ -1,5 +1,5 @@
 # pgAdmin
-## Tutorial of pgAdmin
+# Tutorial of pgAdmin
 <details open="open">
   <summary><b>Table of Contents</b></summary>
   <ol>
