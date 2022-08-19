@@ -1,5 +1,5 @@
 # pgAdmin
-## Tutorial of this customized calendar
+## Tutorial of pgAdmin
 <details open="open">
   <summary><b>Table of Contents</b></summary>
   <ol>
