@@ -24,7 +24,7 @@
 This repository is a tutorial for __pgAdmin 4__, including the script for searching some specific data.
 # __The script__
 ## __Select-the-newest-version__
-**Select the newest version of etl_flow**
+**Select the newest version of etl_flow and extract 100 data**
 * **select** * from yth.etl_ver_control **where** **table_name** = 'etl_flow' **order by** update_time **desc** **limit** 100;
 ## __Search-for-the-specific-parentid__
 **Find the specific parentid and order the data by prod_id, plan_no, step_id**
