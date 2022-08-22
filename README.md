@@ -58,3 +58,6 @@ Note: Different prod_id has differnt groups of numbers
 | update_time | 資料更新時間 |
 
 **etl_wip**
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | 版本號  |
