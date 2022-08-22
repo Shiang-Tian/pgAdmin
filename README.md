@@ -39,7 +39,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 
 Note: Different prod_id has differnt groups of numbers
 
-
+**etl_qtime_spec**
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | 版本號  |
