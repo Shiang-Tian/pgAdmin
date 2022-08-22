@@ -40,7 +40,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 Note: Different prod_id has differnt groups of numbers
 
 
-| First Header  | Second Header |
+| Column  | Description |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| parentid  | 版本號  |
+| prod_id  |   |
