@@ -36,4 +36,5 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 **where** parentid = 'e17f9d53-1e23-141f-e053-24017e0a7d15'  
 **order by** prod_id, plan_no, step_id  
 **limit** 1000;  
+
 Note: Different prod_id has differnt groups of numbers
