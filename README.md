@@ -42,7 +42,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 
 | Column  | Description |
 | ------------- | ------------- |
-| parentid  | 版本號  |
+| parentid  | Version number (版本號)  |
 
 # __The script__
 ## __Select the newest version__
