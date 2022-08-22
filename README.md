@@ -26,7 +26,7 @@
 # __Introduction__
 This repository is a tutorial for __pgAdmin 4__, including the script for searching some specific data.
 # __Tables__
-**etl_qtime_spec**
+* **etl_qtime_spec**
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
@@ -37,7 +37,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | timelimit | Qtime限制長度 |
 | update_time | 資料更新時間 |
 
-**etl_wip**
+* **etl_wip**
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | 版本號  |
