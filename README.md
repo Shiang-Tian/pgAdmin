@@ -56,3 +56,5 @@ Note: Different prod_id has differnt groups of numbers
 | step_id_to | Qtime限制終點站點編號 |
 | timelimit | Qtime限制長度 |
 | update_time | 資料更新時間 |
+
+**etl_wip**
