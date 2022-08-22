@@ -7,10 +7,13 @@
       <a href="#introduction">Introduction</a>
     </li>
     <li>
-      <a href="#the-gui">The script</a> 
+      <a href="#tables">Tables</a>
+    </li>
+    <li>
+      <a href="#the-script">The script</a> 
       <ul>
-        <li><a href="#select-the-newest-version">Select-the-newest-version</a></li>
-        <li><a href="#search-for-the-specific-parentid">Search-for-the-specific-parentid</a></li>  
+        <li><a href="#select-the-newest-version">Select the newest version</a></li>
+        <li><a href="#search-for-the-specific-parentid">Search for the specific parentid</a></li>  
       </ul>
     </li>
     <li>
@@ -26,7 +29,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 **etl_qtime_spec**
 | Column  | Description |
 | ------------- | ------------- |
-| parentid  | 版本號  |
+| parentid  | Version number (版本號)  |
 | prod_id  | Product ID  |
 | plan_id  | Process/Plan/Route ID |
 | step_id_from | Qtime限制起點站點編號 |
@@ -40,10 +43,10 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | parentid  | 版本號  |
 
 # __The script__
-## __Select-the-newest-version__
+## __Select the newest version__
 **Select the newest version of etl_flow and extract 100 data**
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_flow' **order by** update_time **desc** **limit** 100;
-## __Search-for-the-specific-parentid__
+## __Search for the specific parentid__
 **Find the specific parentid and order the data by prod_id, plan_no, step_id**
 * **select** * **from** yth.etl_flow **where** parentid = 'e69121eb-55af-04b5-e053-24017e0a9724' **order by** prod_id, plan_no, step_id;
   
