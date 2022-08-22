@@ -22,6 +22,23 @@
 
 # __Introduction__
 This repository is a tutorial for __pgAdmin 4__, including the script for searching some specific data.
+# __Tables__
+**etl_qtime_spec**
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | 版本號  |
+| prod_id  | Product ID  |
+| plan_id  | Process/Plan/Route ID |
+| step_id_from | Qtime限制起點站點編號 |
+| step_id_to | Qtime限制終點站點編號 |
+| timelimit | Qtime限制長度 |
+| update_time | 資料更新時間 |
+
+**etl_wip**
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | 版本號  |
+
 # __The script__
 ## __Select-the-newest-version__
 **Select the newest version of etl_flow and extract 100 data**
@@ -46,18 +63,4 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 
 Note: Different prod_id has differnt groups of numbers
 
-**etl_qtime_spec**
-| Column  | Description |
-| ------------- | ------------- |
-| parentid  | 版本號  |
-| prod_id  | Product ID  |
-| plan_id  | Process/Plan/Route ID |
-| step_id_from | Qtime限制起點站點編號 |
-| step_id_to | Qtime限制終點站點編號 |
-| timelimit | Qtime限制長度 |
-| update_time | 資料更新時間 |
 
-**etl_wip**
-| Column  | Description |
-| ------------- | ------------- |
-| parentid  | 版本號  |
