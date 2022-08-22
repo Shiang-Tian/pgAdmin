@@ -44,3 +44,7 @@ Note: Different prod_id has differnt groups of numbers
 | ------------- | ------------- |
 | parentid  | 版本號  |
 | prod_id  | Product ID  |
+| plan_id  | Process/Plan/Route ID |
+| step_id_from | Qtime限制起點站點編號 |
+| step_id_to | Qtime限制終點站點編號 |
+| timelimit | Qtime限制長度 |
