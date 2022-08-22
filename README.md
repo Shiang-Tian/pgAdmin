@@ -43,4 +43,4 @@ Note: Different prod_id has differnt groups of numbers
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | 版本號  |
-| prod_id  |   |
+| prod_id  | Product ID  |
