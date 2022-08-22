@@ -29,9 +29,10 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 ## __Search-for-the-specific-parentid__
 **Find the specific parentid and order the data by prod_id, plan_no, step_id**
 * **select** * from yth.etl_flow **where** parentid = 'e69121eb-55af-04b5-e053-24017e0a9724' **order by** prod_id, plan_no, step_id;
-
+**Just give the number to the data, if the prod_id is the same, then it will give the number in ascending order**
 * **select** **row_number()** **over** (**partition by** prod_id **order by** plan_no, step_id) **as** rtn, *  
 **from** yth.etl_flow;  
 **where** parentid = 'e17f9d53-1e23-141f-e053-24017e0a7d15'  
 **order by** prod_id, plan_no, step_id  
 **limit** 1000;
+Note: Different prod_id has differnt groups of numbers
