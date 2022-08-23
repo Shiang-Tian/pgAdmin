@@ -12,8 +12,8 @@
     <li>
       <a href="#the-script">The script</a> 
       <ul>
-        <li><a href="#select-the-newest-version">etl_flow</a></li>
-        <li><a href="#search-for-the-specific-parentid">etl_wip</a></li>  
+        <li><a href="#etl-flow">etl_flow</a></li>
+        <li><a href="#etl-wip">etl_wip</a></li>  
       </ul>
     </li>
     <li>
