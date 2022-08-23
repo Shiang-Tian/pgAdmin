@@ -93,6 +93,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | rack | (客製化) Lot所在貨架名稱 |
 
 * **etl_rls**
+
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
