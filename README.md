@@ -118,8 +118,8 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 
 Note: Different prod_id has differnt groups of numbers
 ## __etl_wip__
-**select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_wip' **order by** update_time **desc** **limit** 100;
-**select** * **from** yth.etl_wip  
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_wip' **order by** update_time **desc** **limit** 100;  
+* **select** * **from** yth.etl_wip  
 **where** parentid = 'e6d1247c-741d-74e6-e053-24017e0a2201'     
 **and** step_id = target_step_id **and** plan_id = target_plan_id --onhand lot  
 **limit** 100;
