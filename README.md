@@ -63,6 +63,16 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
+| lot_id | Lot名稱 |
+| step_id  | 站點編號 |
+| target_step_id  | 目標站點編號  |
+| target_toolg_id | 目標機群 |
+| prod_id  | Product ID |
+| plan_id | Process/Plan/Route ID |
+| lot_type | Lot類型 |
+| qty | 片數 |
+| pty | Lot的優先順序 |
+
 
 # __The script__
 ## __Select the newest version__
