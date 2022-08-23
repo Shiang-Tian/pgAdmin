@@ -27,6 +27,7 @@
 This repository is a tutorial for __pgAdmin 4__, including the script for searching some specific data.
 # __Tables__
 * **etl_flow**
+
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
