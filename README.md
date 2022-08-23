@@ -26,6 +26,25 @@
 # __Introduction__
 This repository is a tutorial for __pgAdmin 4__, including the script for searching some specific data.
 # __Tables__
+* **etl_flow**
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| prod_id  | Product ID  |
+| plan_id  | Process/Plan/Route ID |
+| step_id | 站點編號 |
+| layer | 製程層名稱 |
+| stage | 站點Stage |
+| toolg_id | 機群名稱 |
+| recipe | 站點Recipe |
+| reticle_group | 光罩群組 |
+| step_type | 站點類別(N為一般站點；R為重工站點) |
+| toolg_type | 機群加工類別(P為一般製程機群；M為量測機群) |
+| process_time | 製程處理時間 = Track Out Time–Track In Time (單位：小時) |
+| cycle_time | 站點週期時間 = Track Out Time–Arrival Time (單位：小時) |
+| update_time | 資料更新時間 |
+| plan_no | Process/Plan/Route 順序 |
+
 * **etl_qtime_spec**
 
 | Column  | Description |
