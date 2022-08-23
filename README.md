@@ -121,6 +121,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 * **select** * **from** yth.etl_flow **where** parentid = 'e69121eb-55af-04b5-e053-24017e0a9724' **order by** prod_id, plan_no, step_id;
     
 **3. Just give the number to the data, if the prod_id is the same, then it will give the number in ascending order**
+
 (1)  
 * **select**   
 	**row_number()** **over** (**partition by** prod_id **order by** plan_no, step_id) **as** rtn, *  
