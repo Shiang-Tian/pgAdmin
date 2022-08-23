@@ -74,7 +74,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | pty | Lot的優先順序 |
 | shr_flag | Super Hot Lot分類(支援0~4，-1為Normal Lot) |
 | lot_status | Lot狀態(僅排running, wait, jobprepared) |
-
+| remain_qtime | 還有多久會發生Over Qtime (最嚴苛)，若無Qtime限制，設為999，負數視為已over (單位：小時) |
 
 # __The script__
 ## __Select the newest version__
