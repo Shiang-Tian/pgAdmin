@@ -139,3 +139,9 @@ Note: Different prod_id has differnt groups of numbers
 **and** target_toolg_id = 'ILINE'  
 **and** **not** (step_id = target_step_id **and** plan_id = target_plan_id) --onhand lot  
 
+**4. Using "like" to find the specific word in column plan_id**
+* **select** * **from** yth.etl_wip   
+**where** parentid = 'e6d1247c-741d-74e6-e053-24017e0a2201'    
+**and** target_toolg_id = 'ILINE'   
+**and** step_id = target_step_id **and** plan_id = target_plan_id --onhand lot    
+**and** plan_id **like** '%RWK%'  
