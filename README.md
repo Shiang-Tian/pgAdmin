@@ -41,8 +41,8 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | reticle_group | 光罩群組 |
 | step_type | 站點類別(N為一般站點；R為重工站點) |
 | toolg_type | 機群加工類別(P為一般製程機群；M為量測機群) |
-| process_time | 製程處理時間 = Track Out Time–Track In Time (單位：小時) |
-| cycle_time | 站點週期時間 = Track Out Time–Arrival Time (單位：小時) |
+| process_time | 製程處理時間 = Track Out Time – Track In Time (單位：小時) |
+| cycle_time | 站點週期時間 = Track Out Time – Arrival Time (單位：小時) |
 | update_time | 資料更新時間 |
 | plan_no | Process/Plan/Route 順序 |
 
