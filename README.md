@@ -12,8 +12,8 @@
     <li>
       <a href="#the-script">The script</a> 
       <ul>
-        <li><a href="#etl-flow">etl_flow</a></li>
-        <li><a href="#etl-wip">etl_wip</a></li>  
+        <li><a href="#etl_flow">etl_flow</a></li>
+        <li><a href="#etl_wip">etl_wip</a></li>  
       </ul>
     </li>
     <li>
