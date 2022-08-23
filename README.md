@@ -72,6 +72,8 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | lot_type | Lot類型 |
 | qty | 片數 |
 | pty | Lot的優先順序 |
+| shr_flag | Super Hot Lot分類(支援0~4，-1為Normal Lot) |
+| lot_status | Lot狀態(僅排running, wait, jobprepared) |
 
 
 # __The script__
