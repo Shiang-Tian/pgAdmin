@@ -92,7 +92,24 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | target_plan_id | 目標站點Process/Plan/Route ID |
 | rack | (客製化) Lot所在貨架名稱 |
 
-
+* **etl_rls**
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| lot_id  | Lot名稱  |
+| target_step_id  | 目標站點編號  |
+| toolg_id  | 機群名稱 |
+| tool_id  | 機台名稱 |
+| recipe  | 站點Recipe  |
+| ppid | 機台Recipe (可能含Chamber/參數資訊)  |
+| reticle_id  | 光罩名稱 |
+| ch_set  | Chamber 組合名稱 |
+| set_status  | 機限狀態，"ACTIVE"視為可用，其餘視為機限禁用 |
+| non_process_time  | 非製程處理時間 (單位：小時) |
+| process_time  | 機台製程處理時間 (單位：小時) |
+| update_time  | 資料更新時間 |
+| target_stage  | 目標站點Stage |
+| remark  | (客製化) 備註 |
 
 # __The script__
 ## __etl_flow__
