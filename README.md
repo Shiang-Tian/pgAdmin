@@ -140,9 +140,20 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 **order by** prod_id, plan_no, step_id
 
 Note: Different prod_id has differnt groups of numbers
+
 ## __etl_qtime_spec__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_qtime_spec' **order by** update_time **desc** **limit** 100;  
 * **select** * **from** yth.etl_qtime_spec **where** parentid = 'e1814a4d-2431-0ece-e053-24017e0af009' **order by** prod_id, step_id_from
+
+**1. Checking how many steps it goes through** 
+* **select** * **from** yth.etl_flow  
+**where** parentid = 'e1814a4d-2431-0ece-e053-24017e0af009'  
+**and** prod_id = 'BK-V2-DPVT-2-3.02'  
+**and** plan_id = 'BK-V2-DPVT-2-3.02'  
+**and** step_id >= '008.000'  
+**and** step_id <= '011.000'  
+**order by** prod_id, plan_no, step_id;
+
 ## __etl_wip__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_wip' **order by** update_time **desc** **limit** 100;
 
