@@ -98,7 +98,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
-| lot_id  | Lot名稱  |
+| lot_id  | Lot名稱 |
 | target_step_id  | 目標站點編號  |
 | toolg_id  | 機群名稱 |
 | tool_id  | 機台名稱 |
@@ -112,6 +112,31 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | update_time  | 資料更新時間 |
 | target_stage  | 目標站點Stage |
 | remark  | (客製化) 備註 |
+
+* **etl_tool**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| tool_id  | 機台名稱 |
+| ch_id  | Chamber 名稱 |
+| tool_status  | 主機台機況 (僅排 RUN, IDLE) |
+| tool_status_time  | 機台切機況時間 |
+| ch_status  | Chamber 機況 (僅排 RUN, IDLE) |
+| ch_status_time  | Chamber 切機況時間 |
+| lot_id  | 最後一批Track In Lot ID |
+| down_back_time  | 機況預估回線時間 |
+| port_num  | 機台 Load port 數量 |
+| reticle_num  | 光罩儲位數量 |
+| location  | 機台位置 (樓層/走道) |
+| update_time  | 資料更新時間 |
+
+* **etl_mask_info**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
 
 # __The script__
 ## __etl_flow__
@@ -188,3 +213,17 @@ Note: Different prod_id has differnt groups of numbers
 **where** parentid = 'e18828bf-31d6-16ee-e053-24017e0aa58d'   
 **order by** lot_id, target_step_id, tool_id **limit** 1000;
 
+## __etl_tool__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_tool' **order by** update_time **desc** **limit** 100;
+* **select** * **from** yth.etl_tool  
+**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+* **select** * **from** yth.etl_tool  
+**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+**and** toolg_id = 'ILINE'
+* **select** * **from** yth.etl_tool  
+**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+**and** toolg_id = 'SPUTTER'
+* **select** * **from** yth.etl_tool 
+**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+**and** toolg_id = 'SPUTTER'
+**order by** tool_id, ch_id
