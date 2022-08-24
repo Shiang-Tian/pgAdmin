@@ -215,15 +215,15 @@ Note: Different prod_id has differnt groups of numbers
 
 ## __etl_tool__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_tool' **order by** update_time **desc** **limit** 100;
-* **select** * **from** yth.etl_tool  
+* **select** * **from** yth.etl_tool    
 **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
-* **select** * **from** yth.etl_tool  
-**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+* **select** * **from** yth.etl_tool      
+**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'  
 **and** toolg_id = 'ILINE'
-* **select** * **from** yth.etl_tool  
-**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+* **select** * **from** yth.etl_tool    
+**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'  
 **and** toolg_id = 'SPUTTER'
-* **select** * **from** yth.etl_tool 
-**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
-**and** toolg_id = 'SPUTTER'
+* **select** * **from** yth.etl_tool   
+**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'  
+**and** toolg_id = 'SPUTTER'  
 **order by** tool_id, ch_id
