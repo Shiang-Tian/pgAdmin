@@ -181,3 +181,10 @@ Note: Different prod_id has differnt groups of numbers
 **and** target_toolg_id = 'ILINE'   
 **and** step_id = target_step_id **and** plan_id = target_plan_id --onhand lot    
 **and** plan_id **like** '%RWK%'  
+
+## __etl_rls__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_rls' **order by** update_time **desc** **limit** 100;
+* **select** * **from** yth.etl_rls  
+**where** parentid = 'e18828bf-31d6-16ee-e053-24017e0aa58d'   
+**order by** lot_id, target_step_id, tool_id **limit** 1000;
+
