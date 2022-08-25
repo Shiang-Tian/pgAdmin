@@ -98,7 +98,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
-| lot_id  | Lot名稱 |
+| lot_id  | Lot 名稱 |
 | target_step_id  | 目標站點編號  |
 | toolg_id  | 機群名稱 |
 | tool_id  | 機台名稱 |
@@ -137,6 +137,41 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
+| reticle_group  | 光罩群組 |
+| reticle_id  | 光罩名稱 |
+| reticle_count  | 光罩可用數量 |
+| position  | 光罩位置 (若在傳送中，則為預訂到達目的地機台) |
+| position_time  | 光罩抵達時間 |
+| reticle_status  | 光罩狀態 (僅排ACTIVE) |
+| inspection_time  | 下次排檢時間 |
+| run_qty  | 已使用 wafer 數量 |
+| run_lbound  | 使用 wafer 片數排檢下限 |
+| run_ubound  | 使用 wafer 片數排檢上限 |
+| update_time  | 資料更新時間 |
+
+* **etl_demand**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| prod_id  | Product ID |
+| plan_id | Process/Plan/Route ID |
+| step_id  | 站點編號 |
+| lot_type  | Lot 類型 |
+| tech_id  | Technology Name |
+| customer | Customer ID |
+| recipe  | 站點Recipe |
+| layer_group  | Layer 群組 |
+| layer | 製程層名稱 |
+| stage | 站點Stage |
+| lot_id | Lot 名稱 |
+| pty | Lot 的優先順序 |
+| target_qty | 目標量 |
+| target_shift | 班次 |
+| target_time_from | 起算時間 |
+| target_time | 結算時間 |
+| target_mode | 目標模式 (0 = 至少；1 = 至多，預設為0) |
 
 # __The script__
 ## __etl_flow__
@@ -227,3 +262,17 @@ Note: Different prod_id has differnt groups of numbers
 **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'  
 **and** toolg_id = 'SPUTTER'  
 **order by** tool_id, ch_id
+
+## __etl_mask_info__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_mask_info' **order by** update_time **desc** **limit** 100;  
+* **select** * **from** yth.etl_mask_info
+**where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
+**1. Find the machine in the position column**     
+* **select** * **from** yth.etl_mask_info   
+**where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
+**and** **position in** (**select** tool_id **from** yth.etl_tool **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+
+
+
+
+
