@@ -271,7 +271,7 @@ Note: Different prod_id has differnt groups of numbers
 **1. Find the machine in the position column**     
 * **select** * **from** yth.etl_mask_info   
 **where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
-**and** **position in** (**select** tool_id **from** yth.etl_tool **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+**and** **position in** (**select** tool_id **from** yth.etl_tool **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc')
 
 
 
