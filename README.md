@@ -265,8 +265,9 @@ Note: Different prod_id has differnt groups of numbers
 
 ## __etl_mask_info__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_mask_info' **order by** update_time **desc** **limit** 100;  
-* **select** * **from** yth.etl_mask_info
+* **select** * **from** yth.etl_mask_info  
 **where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
+
 **1. Find the machine in the position column**     
 * **select** * **from** yth.etl_mask_info   
 **where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
