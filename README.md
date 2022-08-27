@@ -326,3 +326,15 @@ Note: Different prod_id has differnt groups of numbers
 **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'  
 **and** seq = 1
 
+## __etl_lothistory__
+* **select** * **from** yth.etl_demand **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'  
+**and** seq = 3  
+* **select** * **from** yth.etl_lothistory   
+**where** track_out >= '2022-06-16 07:20'  
+**order by** tool_id, track_in  
+* **select** * **from** yth.etl_lothistory     
+**where** track_out >= '2022-06-16 07:20'    
+**and** toolg_id = 'ILINE'  
+**order by** tool_id, track_in
+
+
