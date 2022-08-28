@@ -220,6 +220,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | flagfield  | ETL 程式比對來源表與目標表的差異 |
 
 * **etl_stage_move**
+
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
