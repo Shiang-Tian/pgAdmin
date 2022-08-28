@@ -225,8 +225,15 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
 | mfg_date  | 生產日期 |
-
-
+| toolg_id  | 機群名稱 |
+| tech_id  | Technology Name |
+| stage | 站點Stage |
+| lot_type  | Lot 類型 |
+| qty | 片數 |
+| update_time  | 資料更新時間 |
+| prod_id  | Product ID |
+| customer | Customer ID |
+| measure_qty | 量測站堆貨數量 |
 
 # __The script__
 ## __etl_flow__
