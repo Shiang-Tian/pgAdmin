@@ -380,6 +380,7 @@ Note: Different prod_id has differnt groups of numbers
 * **select** * **from** yth.etl_demand    
 **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'      
 **and** seq = 1  
+
 **Pick one specific stage from etl_demand** 
 * **select** * **from** yth.etl_stage_move
 **where** parentid = 'e1894723-d41b-3f0d-e053-24017e0a206c'  
