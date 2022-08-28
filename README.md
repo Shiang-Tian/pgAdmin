@@ -20,6 +20,8 @@
 	<li><a href="#etl_mask_info">etl_mask_info</a></li> 
 	<li><a href="#etl_demand">etl_demand</a></li>
 	<li><a href="#etl_lothistory">etl_lothistory</a></li>
+	<li><a href="#etl_stage_move">etl_stage_move</a></li>
+	<li><a href="#etl_backup_hist">etl_backup_hist</a></li>
       </ul>
     </li>
     <li>
@@ -235,6 +237,19 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | customer | Customer ID |
 | measure_qty | 量測站堆貨數量 |
 
+* **etl_backup_hist**
+
+| Column  | Description |
+| ------------- | ------------- |
+| mfg_date  | 生產日期 |
+| seq_id  | 小時數 |
+| toolg_id  | 機群名稱 |
+| tech_id  | Technology Name |
+| layer_group  | Layer 群組 |
+| qty | 片數 |
+| update_time  | 資料更新時間 |
+| flagfield  | ETL 程式比對來源表與目標表的差異 |
+
 # __The script__
 ## __etl_flow__
 **1. Select the newest version of etl_flow and extract 100 data**
@@ -330,7 +345,7 @@ Note: Different prod_id has differnt groups of numbers
 * **select** * **from** yth.etl_mask_info  
 **where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
 
-**1. Find the machine in the position column**     
+**Find the machine in the position column**     
 * **select** * **from** yth.etl_mask_info   
 **where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
 **and** **position in** (**select** tool_id **from** yth.etl_tool **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc')
@@ -338,7 +353,7 @@ Note: Different prod_id has differnt groups of numbers
 ## __etl_demand__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_demand' **order by** update_time **desc** **limit** 100;
 
-**1. Key stage demand** 
+**Key stage demand** 
 * **select** * **from** yth.etl_demand   
 **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'  
 **and** seq = 1
@@ -358,3 +373,18 @@ Note: Different prod_id has differnt groups of numbers
 **and** toolg_id = 'ILINE'    
 **and** stage **in** ('ALZER-Z', 'ALZER', 'ALZER-1')  
 **order by** tool_id, track_in
+
+## __etl_stage_move__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_stage_move' **order by** update_time **desc** **limit** 100;  
+
+* **select** * **from** yth.etl_demand    
+**where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'      
+**and** seq = 1  
+**Pick one specific stage from etl_demand** 
+* **select** * **from** yth.etl_stage_move
+**where** parentid = 'e1894723-d41b-3f0d-e053-24017e0a206c'  
+**and** stage = 'ALHNSD'
+
+## __etl_backup_hist__
+* **select** * **from** yth.etl_backup_hist **order by** update_time
+* **select** * **from** yth.etl_backup_hist **order by** update_time **desc**
