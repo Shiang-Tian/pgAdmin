@@ -271,7 +271,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 (2)  
 * **select** * **from** yth.etl_flow **limit** 100;
 * **select**  
-	**row_number()** **over**(**partition by** prod_id **order by** plan_no, step_id)**as** rtn, *  
+	**row_number()** **over**(**partition by** prod_id **order by** plan_no, step_id) **as** rtn, *  
 **from** yth.etl_flow  
 **where** parentid = 'c7d78df4-91d6-517f-e053-24017e0a85af' **and** prod_id='VP4611F-TBR1HAZ1.02'  
 **order by** prod_id, plan_no, step_id
