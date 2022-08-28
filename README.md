@@ -224,6 +224,8 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | Column  | Description |
 | ------------- | ------------- |
 | parentid  | Version number (版本號)  |
+| mfg_date  | 生產日期 |
+
 
 
 # __The script__
