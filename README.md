@@ -22,6 +22,8 @@
 	<li><a href="#etl_lothistory">etl_lothistory</a></li>
 	<li><a href="#etl_stage_move">etl_stage_move</a></li>
 	<li><a href="#etl_backup_hist">etl_backup_hist</a></li>
+	<li><a href="#etl_photo_balance">etl_photo_balance</a></li>
+	<li><a href="#etl_safety_wip">etl_safety_wip</a></li>
       </ul>
     </li>
     <li>
@@ -250,11 +252,34 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | update_time  | 資料更新時間 |
 | flagfield  | ETL 程式比對來源表與目標表的差異 |
 
-* **etl__hist**
+* **etl_photo_balance**
 
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| assign_tool_id  | 指定機台名稱 |
+| qty | 片數 |
+| update_time  | 資料更新時間 |
 
+* **etl_safety_wip**
 
-
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| safety_wip_lb  | 安全存量下限 |
+| safety_wip_ub  | 安全存量上限 |
+| onhand_qty  | 當站wip片數 |
+| coming_qty   | 未到站 (黃光-蝕刻站間) WIP 片數 |
+| update_time  | 資料更新時間 |
+| subgroup  | 子群組 |
+| prod_mode  | Product 比對模式 |
+| prod_id | Product ID |
+| tech_mode  | Tech 比對模式 |
+| tech_id  | Technology Name |
+| recipe_mode  | Step Recipe 比對模式 |
+| recipe  | 站點 Recipe |
 
 # __The script__
 ## __etl_flow__
@@ -395,3 +420,11 @@ Note: Different prod_id has differnt groups of numbers
 ## __etl_backup_hist__
 * **select** * **from** yth.etl_backup_hist **order by** update_time
 * **select** * **from** yth.etl_backup_hist **order by** update_time **desc**
+
+## __etl_photo_balance__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_photo_balance' **order by** update_time **desc** **limit** 100;  
+* **select** * **from** yth.etl_photo_balance **where** parentid = 'e19bb18a-cb46-176a-e053-24017e0a79f7'
+
+## __etl_safety_wip__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_safety_wip' **order by** update_time **desc** **limit** 100;  
+* **select** * **from** yth.etl_safety_wip **where** parentid = 'e19c05f8-2fed-3ad4-e053-24017e0a5d21'
