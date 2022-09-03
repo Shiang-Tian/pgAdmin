@@ -283,6 +283,39 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 
 * **etl_pri_wip**
 
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| lot_id  | Lot 名稱 |
+| stage | 站點Stage |
+| update_time  | 資料更新時間 |
+| pri_type  | 優先類型 |
+
+* **etl_pirun**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| tool_id  | 機台名稱 |
+| ch_id  | Chamber 名稱 |
+| prod_id | Product ID |
+| plan_id | Process/Plan/Route ID |
+| step_id  | 站點編號 |
+| recipe  | 站點 Recipe |
+| ppid  | 機台Recipe (可能含Chamber/參數資訊) |
+| stage | 站點Stage |
+| tech_id  | Technology Name |
+| customer | Customer ID |
+| lot_id  | Lot 名稱 |
+| rule_name  | 規則名稱 |
+| remaining_count  | 剩餘批數 (超過後會禁Run) |
+| remaining_time  | 剩餘時數 (超過後會禁Run) |
+| recover_time  | 回線時間 (如：Monitor 加測時間) |
+| valid_recipe  | 可延長時效的 Recipe |
+| valid_time  | 可延長的時間 |
+| update_time  | 資料更新時間 |
+
 # __The script__
 ## __etl_flow__
 **1. Select the newest version of etl_flow and extract 100 data**
@@ -307,13 +340,13 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 	**row_number()** **over**(**partition by** prod_id **order by** plan_no, step_id) **as** rtn, *  
 **from** yth.etl_flow  
 **where** parentid = 'c7d78df4-91d6-517f-e053-24017e0a85af' **and** prod_id='VP4611F-TBR1HAZ1.02'  
-**order by** prod_id, plan_no, step_id
+**order by** prod_id, plan_no, step_id;
 
 Note: Different prod_id has differnt groups of numbers
 
 ## __etl_qtime_spec__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_qtime_spec' **order by** update_time **desc** **limit** 100;  
-* **select** * **from** yth.etl_qtime_spec **where** parentid = 'e1814a4d-2431-0ece-e053-24017e0af009' **order by** prod_id, step_id_from
+* **select** * **from** yth.etl_qtime_spec **where** parentid = 'e1814a4d-2431-0ece-e053-24017e0af009' **order by** prod_id, step_id_from;
 
 **Checking how many steps it goes through** 
 * **select** * **from** yth.etl_flow  
@@ -337,20 +370,20 @@ Note: Different prod_id has differnt groups of numbers
 * **select** * **from** yth.etl_wip  
 **where** parentid = 'e6d1247c-741d-74e6-e053-24017e0a2201'     
 **and** target_toolg_id = 'ILINE'  
-**and** step_id = target_step_id **and** plan_id = target_plan_id --onhand lot  
+**and** step_id = target_step_id **and** plan_id = target_plan_id --onhand lot;  
 
 **3. Checking how many steps will go through**
 * **select** * **from** yth.etl_wip    
 **where** parentid = 'e6d1247c-741d-74e6-e053-24017e0a2201'  
 **and** target_toolg_id = 'ILINE'  
-**and** **not** (step_id = target_step_id **and** plan_id = target_plan_id) --onhand lot  
+**and** **not** (step_id = target_step_id **and** plan_id = target_plan_id) --onhand lot;  
 
 **4. Using "like" to find the specific word in column plan_id**
 * **select** * **from** yth.etl_wip   
 **where** parentid = 'e6d1247c-741d-74e6-e053-24017e0a2201'    
 **and** target_toolg_id = 'ILINE'   
 **and** step_id = target_step_id **and** plan_id = target_plan_id --onhand lot    
-**and** plan_id **like** '%RWK%'  
+**and** plan_id **like** '%RWK%';  
 
 ## __etl_rls__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_rls' **order by** update_time **desc** **limit** 100;
@@ -361,27 +394,27 @@ Note: Different prod_id has differnt groups of numbers
 ## __etl_tool__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_tool' **order by** update_time **desc** **limit** 100;
 * **select** * **from** yth.etl_tool    
-**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'
+**where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc';
 * **select** * **from** yth.etl_tool      
 **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'  
-**and** toolg_id = 'ILINE'
+**and** toolg_id = 'ILINE';
 * **select** * **from** yth.etl_tool    
 **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'  
-**and** toolg_id = 'SPUTTER'
+**and** toolg_id = 'SPUTTER';
 * **select** * **from** yth.etl_tool   
 **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc'  
 **and** toolg_id = 'SPUTTER'  
-**order by** tool_id, ch_id
+**order by** tool_id, ch_id;
 
 ## __etl_mask_info__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_mask_info' **order by** update_time **desc** **limit** 100;  
 * **select** * **from** yth.etl_mask_info  
-**where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
+**where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f';  
 
 **Find the machine in the position column**     
 * **select** * **from** yth.etl_mask_info   
 **where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
-**and** **position in** (**select** tool_id **from** yth.etl_tool **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc')
+**and** **position in** (**select** tool_id **from** yth.etl_tool **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc');
 
 ## __etl_demand__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_demand' **order by** update_time **desc** **limit** 100;
@@ -389,44 +422,62 @@ Note: Different prod_id has differnt groups of numbers
 **Key stage demand** 
 * **select** * **from** yth.etl_demand   
 **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'  
-**and** seq = 1
+**and** seq = 1;
 
 ## __etl_lothistory__
 * **select** * **from** yth.etl_demand **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'  
-**and** seq = 3  
+**and** seq = 3;
 * **select** * **from** yth.etl_lothistory   
 **where** track_out >= '2022-06-16 07:20'  
-**order by** tool_id, track_in  
+**order by** tool_id, track_in;  
 * **select** * **from** yth.etl_lothistory     
 **where** track_out >= '2022-06-16 07:20'    
 **and** toolg_id = 'ILINE'  
-**order by** tool_id, track_in
+**order by** tool_id, track_in;
 * **select** * **from** yth.etl_lothistory   
 **where** track_out >= '2022-06-16 07:20'    
 **and** toolg_id = 'ILINE'    
 **and** stage **in** ('ALZER-Z', 'ALZER', 'ALZER-1')  
-**order by** tool_id, track_in
+**order by** tool_id, track_in;
 
 ## __etl_stage_move__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_stage_move' **order by** update_time **desc** **limit** 100;  
 
 * **select** * **from** yth.etl_demand    
 **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'      
-**and** seq = 1  
+**and** seq = 1;
 
 **Pick one specific stage from etl_demand and search in the etl_stage_move** 
 * **select** * **from** yth.etl_stage_move
 **where** parentid = 'e1894723-d41b-3f0d-e053-24017e0a206c'  
-**and** stage = 'ALHNSD'
+**and** stage = 'ALHNSD';
 
 ## __etl_backup_hist__
-* **select** * **from** yth.etl_backup_hist **order by** update_time
-* **select** * **from** yth.etl_backup_hist **order by** update_time **desc**
+* **select** * **from** yth.etl_backup_hist **order by** update_time;
+* **select** * **from** yth.etl_backup_hist **order by** update_time **desc**;
 
 ## __etl_photo_balance__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_photo_balance' **order by** update_time **desc** **limit** 100;  
-* **select** * **from** yth.etl_photo_balance **where** parentid = 'e19bb18a-cb46-176a-e053-24017e0a79f7'
+* **select** * **from** yth.etl_photo_balance **where** parentid = 'e19bb18a-cb46-176a-e053-24017e0a79f7';
 
 ## __etl_safety_wip__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_safety_wip' **order by** update_time **desc** **limit** 100;  
-* **select** * **from** yth.etl_safety_wip **where** parentid = 'e19c05f8-2fed-3ad4-e053-24017e0a5d21'
+* **select** * **from** yth.etl_safety_wip **where** parentid = 'e19c05f8-2fed-3ad4-e053-24017e0a5d21';
+
+## __etl_pri_wip__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_pri_wip' **order by** update_time **desc** **limit** 100;  
+* **select** * **from** yth.etl_pri_wip **where** parentid = 'e19bdb02-e8cc-2e72-e053-24017e0a43e8';
+
+**Check how many pri_types**
+* **select** **distinct** pri_type **from** yth.etl_pri_wip **where** parentid = 'e19bdb02-e8cc-2e72-e053-24017e0a43e8';
+
+## __etl_pirun__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_pirun' **order by** update_time **desc** **limit** 100;   
+* **select** rule_name, * **from** yth.etl_pirun **where** parentid = 'e19c30eb-5224-4813-e053-24017e0a9c28'  
+**order by** toolg_id, tool_id, rule_name;  
+* **select** update_time, rule_name, remaining_time, * **from** yth.etl_pirun **where** prod_id = 'VP5123J-C2T2NAZ1.01'  
+**and** plan_id = '25UBCA-V1-N.13'   
+**and** step_id = '432.000'  
+**and** tool_id = '1B-D300'
+**and** rule_name = 'SOC'  
+**order by** update_time **desc limit** 100;
