@@ -478,6 +478,6 @@ Note: Different prod_id has differnt groups of numbers
 * **select** update_time, rule_name, remaining_time, * **from** yth.etl_pirun **where** prod_id = 'VP5123J-C2T2NAZ1.01'  
 **and** plan_id = '25UBCA-V1-N.13'   
 **and** step_id = '432.000'  
-**and** tool_id = '1B-D300'
-**and** rule_name = 'SOC'  
+**and** tool_id = '1B-D300'  
+**and** rule_name = 'SOC'    
 **order by** update_time **desc limit** 100;
