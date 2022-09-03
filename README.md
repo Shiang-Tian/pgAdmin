@@ -33,6 +33,9 @@
       </ul>
     </li>
     <li>
+      <a href="#Another-way-to-check-the-latest-version">Another way to check the latest version</a>
+    </li>
+    <li>
       <a href="#the-instructions-for-this-database">The instructions for this database</a>
     </li>
     
@@ -543,7 +546,7 @@ Note: Different prod_id has differnt groups of numbers
 ## __etl_kpi_hourly__
 * **select** * **from** yth.etl_kpi_hourly **order by** update_time **desc** **limit** 100;
 
-## __Another way to check the latest version__
+# __Another way to check the latest version__
 Except using etl_ver_control to check the latest version, you can use v_ to check  
 * **v_etl_photo_balance**      
   **select** * **from** yth.v_etl_photo_balance  
