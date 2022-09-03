@@ -24,6 +24,12 @@
 	<li><a href="#etl_backup_hist">etl_backup_hist</a></li>
 	<li><a href="#etl_photo_balance">etl_photo_balance</a></li>
 	<li><a href="#etl_safety_wip">etl_safety_wip</a></li>
+	<li><a href="#etl_pri_wip">etl_pri_wip</a></li>
+	<li><a href="#etl_pirun">etl_pirun</a></li>
+	<li><a href="#etl_backup_rls">etl_backup_rls</a></li>
+	<li><a href="#etl_backup_report">etl_backup_report</a></li>
+	<li><a href="#etl_kpi_daily">etl_kpi_daily</a></li>  
+	<li><a href="#etl_kpi_hourly">etl_kpi_hourly</a></li>
       </ul>
     </li>
     <li>
@@ -316,6 +322,47 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | valid_time  | 可延長的時間 |
 | update_time  | 資料更新時間 |
 
+* **etl_backup_rls**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| tool_model  | 外廠機台機型  |
+| reticle_id  | 光罩名稱 |
+| prod_id_6  | Product ID 前6碼  |
+| stage | 站點Stage |
+| onhand_qty  | 當站 WIP 數量 |
+| coming_qty  | 當日 flow in WIP 數量 |
+| update_time  | 資料更新時間 |
+
+* **etl_backup_report**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| factory_id  | 工廠名稱 |
+| commit_qty  | 廠別可支援量 |
+| toolg_id  | 外廠機群名稱 |
+| tool_model  | 外廠機台機型 |
+| initial_qty  | 期初外廠黃光機台 WIP 量 |
+| today_qty  | 當日量 |
+| safety_qty  | 安全水位數量 |
+| update_time  | 資料更新時間 |
+
+* **etl_kpi_daily**
+
+| Column  | Description |
+| ------------- | ------------- |
+| mfg_date  | 生產日期 |
+| toolg_id  | 機群名稱 |
+| tool_id  | 機台名稱 |
+| kpi | KPI 名稱 (縮寫) |
+| value  | KPI 數值 |
+| update_time  | 資料更新時間 |
+| flagfield  | ETL 程式比對來源表與目標表的差異 |
+
+
+
 # __The script__
 ## __etl_flow__
 **1. Select the newest version of etl_flow and extract 100 data**
@@ -481,3 +528,21 @@ Note: Different prod_id has differnt groups of numbers
 **and** tool_id = '1B-D300'  
 **and** rule_name = 'SOC'    
 **order by** update_time **desc limit** 100;
+
+## __etl_backup_rls__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_backup_rls' **order by** update_time **desc** **limit** 100; 
+* **select** * **from** yth.etl_backup_rls **where** parentid = 'e19449f8-7d3c-55a6-e053-24017e0a75f4';
+
+## __etl_backup_report__
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_backup_report' **order by** update_time **desc** **limit** 100; 
+* **select** * **from** yth.etl_backup_report **where** parentid = 'e1997525-f46d-4994-e053-24017e0a1ddb';
+
+## __etl_kpi_daily__
+* **select** * **from** yth.etl_kpi_daily **order by** update_time **desc** **limit** 100;
+
+## __etl_kpi_hourly__
+* **select** * **from** yth.etl_kpi_hourly **order by** update_time **desc** **limit** 100;
+
+
+
+
