@@ -543,6 +543,13 @@ Note: Different prod_id has differnt groups of numbers
 ## __etl_kpi_hourly__
 * **select** * **from** yth.etl_kpi_hourly **order by** update_time **desc** **limit** 100;
 
-
-
-
+## __Another way to check the latest version__
+Except using etl_ver_control to check the latest version, you can use v_ to check  
+* **v_etl_photo_balance**      
+  **select** * **from** yth.v_etl_photo_balance  
+* **v_etl_flow**    
+  **select** * **from** yth.v_etl_flow **order by** prod_id, plan_no, step_id **limit** 1000;  
+* **v_etl_wip**      
+  **select** **distinct** lot_type **from** yth.v_etl_wip **where** target_toolg_id = 'ILINE';    
+  **select** **distinct** lot_type **from** yth.v_etl_wip **where** target_toolg_id = 'DUV';    
+ 
