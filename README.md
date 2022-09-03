@@ -8,6 +8,9 @@
     </li>
     <li>
       <a href="#tables">Tables</a>
+      <ul>
+        <li><a href="#etl-tables">etl tables</a></li>
+      </ul>
     </li>
     <li>
       <a href="#the-script">The script</a> 
