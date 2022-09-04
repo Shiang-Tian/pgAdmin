@@ -370,10 +370,26 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | flagfield  | ETL 程式比對來源表與目標表的差異 |
 
 ## __set tables__
+* **set_ver_control**
+
+| Column  | Description |
+| ------------- | ------------- |
+| id  | Version number (版本號)  |
+| module_id  | 區域名稱 |
+| toolg_id  | 機群名稱 |
+| table_name  | Table 名稱 |
+| name  | 更新者 |
+| version  | 版本數 |
+| activeflag  | 生效開關 (預設 1) |
+| enableflag  | 開關 |
+| description  | 敘述 |
+| update_time  | 資料更新時間 |
+| update_user  | 資料更新者 |
 
 
 # __The script__
-## __etl_flow__
+## __etl_tables__
+### __etl_flow__
 **1. Select the newest version of etl_flow and extract 100 data**
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_flow' **order by** update_time **desc** **limit** 100;  
 
@@ -400,7 +416,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 
 Note: Different prod_id has differnt groups of numbers
 
-## __etl_qtime_spec__
+### __etl_qtime_spec__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_qtime_spec' **order by** update_time **desc** **limit** 100;  
 * **select** * **from** yth.etl_qtime_spec **where** parentid = 'e1814a4d-2431-0ece-e053-24017e0af009' **order by** prod_id, step_id_from;
 
@@ -413,7 +429,7 @@ Note: Different prod_id has differnt groups of numbers
 **and** step_id <= '011.000'  
 **order by** prod_id, plan_no, step_id;
 
-## __etl_wip__
+### __etl_wip__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_wip' **order by** update_time **desc** **limit** 100;
 
 **1. Determine whether it is a current stage**  
@@ -441,13 +457,13 @@ Note: Different prod_id has differnt groups of numbers
 **and** step_id = target_step_id **and** plan_id = target_plan_id --onhand lot    
 **and** plan_id **like** '%RWK%';  
 
-## __etl_rls__
+### __etl_rls__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_rls' **order by** update_time **desc** **limit** 100;
 * **select** * **from** yth.etl_rls  
 **where** parentid = 'e18828bf-31d6-16ee-e053-24017e0aa58d'   
 **order by** lot_id, target_step_id, tool_id **limit** 1000;
 
-## __etl_tool__
+### __etl_tool__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_tool' **order by** update_time **desc** **limit** 100;
 * **select** * **from** yth.etl_tool    
 **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc';
@@ -462,7 +478,7 @@ Note: Different prod_id has differnt groups of numbers
 **and** toolg_id = 'SPUTTER'  
 **order by** tool_id, ch_id;
 
-## __etl_mask_info__
+### __etl_mask_info__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_mask_info' **order by** update_time **desc** **limit** 100;  
 * **select** * **from** yth.etl_mask_info  
 **where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f';  
@@ -472,7 +488,7 @@ Note: Different prod_id has differnt groups of numbers
 **where** parentid = 'e188f944-d0a6-41ca-e053-24017e0a9c9f'  
 **and** **position in** (**select** tool_id **from** yth.etl_tool **where** parentid = 'e188d57e-530b-4ce8-e053-24017e0aabfc');
 
-## __etl_demand__
+### __etl_demand__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_demand' **order by** update_time **desc** **limit** 100;
 
 **Key stage demand** 
@@ -480,7 +496,7 @@ Note: Different prod_id has differnt groups of numbers
 **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'  
 **and** seq = 1;
 
-## __etl_lothistory__
+### __etl_lothistory__
 * **select** * **from** yth.etl_demand **where** parentid = 'e188d57c-4426-4cf2-e053-24017e0adc95'  
 **and** seq = 3;
 * **select** * **from** yth.etl_lothistory   
@@ -496,7 +512,7 @@ Note: Different prod_id has differnt groups of numbers
 **and** stage **in** ('ALZER-Z', 'ALZER', 'ALZER-1')  
 **order by** tool_id, track_in;
 
-## __etl_stage_move__
+### __etl_stage_move__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_stage_move' **order by** update_time **desc** **limit** 100;  
 
 * **select** * **from** yth.etl_demand    
@@ -508,26 +524,26 @@ Note: Different prod_id has differnt groups of numbers
 **where** parentid = 'e1894723-d41b-3f0d-e053-24017e0a206c'  
 **and** stage = 'ALHNSD';
 
-## __etl_backup_hist__
+### __etl_backup_hist__
 * **select** * **from** yth.etl_backup_hist **order by** update_time;
 * **select** * **from** yth.etl_backup_hist **order by** update_time **desc**;
 
-## __etl_photo_balance__
+### __etl_photo_balance__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_photo_balance' **order by** update_time **desc** **limit** 100;  
 * **select** * **from** yth.etl_photo_balance **where** parentid = 'e19bb18a-cb46-176a-e053-24017e0a79f7';
 
-## __etl_safety_wip__
+### __etl_safety_wip__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_safety_wip' **order by** update_time **desc** **limit** 100;  
 * **select** * **from** yth.etl_safety_wip **where** parentid = 'e19c05f8-2fed-3ad4-e053-24017e0a5d21';
 
-## __etl_pri_wip__
+### __etl_pri_wip__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_pri_wip' **order by** update_time **desc** **limit** 100;  
 * **select** * **from** yth.etl_pri_wip **where** parentid = 'e19bdb02-e8cc-2e72-e053-24017e0a43e8';
 
 **Check how many pri_types**
 * **select** **distinct** pri_type **from** yth.etl_pri_wip **where** parentid = 'e19bdb02-e8cc-2e72-e053-24017e0a43e8';
 
-## __etl_pirun__
+### __etl_pirun__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_pirun' **order by** update_time **desc** **limit** 100;   
 * **select** rule_name, * **from** yth.etl_pirun **where** parentid = 'e19c30eb-5224-4813-e053-24017e0a9c28'  
 **order by** toolg_id, tool_id, rule_name;  
@@ -538,19 +554,23 @@ Note: Different prod_id has differnt groups of numbers
 **and** rule_name = 'SOC'    
 **order by** update_time **desc limit** 100;
 
-## __etl_backup_rls__
+### __etl_backup_rls__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_backup_rls' **order by** update_time **desc** **limit** 100; 
 * **select** * **from** yth.etl_backup_rls **where** parentid = 'e19449f8-7d3c-55a6-e053-24017e0a75f4';
 
-## __etl_backup_report__
+### __etl_backup_report__
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_backup_report' **order by** update_time **desc** **limit** 100; 
 * **select** * **from** yth.etl_backup_report **where** parentid = 'e1997525-f46d-4994-e053-24017e0a1ddb';
 
-## __etl_kpi_daily__
+### __etl_kpi_daily__
 * **select** * **from** yth.etl_kpi_daily **order by** update_time **desc** **limit** 100;
 
-## __etl_kpi_hourly__
+### __etl_kpi_hourly__
 * **select** * **from** yth.etl_kpi_hourly **order by** update_time **desc** **limit** 100;
+
+## __set_tables__
+* **select** * **from** yth.v_set_ver_control;
+* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_backup_report' **order by** update_time **desc** **limit** 100; 
 
 # __Another way to check the latest version__
 Except using **etl_ver_control** to check the latest version, you can use **v_** to check  
@@ -560,5 +580,9 @@ Except using **etl_ver_control** to check the latest version, you can use **v_**
   **select** * **from** yth.v_etl_flow **order by** prod_id, plan_no, step_id **limit** 1000;  
 * **v_etl_wip**      
   (1) **select** **distinct** lot_type **from** yth.v_etl_wip **where** target_toolg_id = 'ILINE';    
-  (2) **select** **distinct** lot_type **from** yth.v_etl_wip **where** target_toolg_id = 'DUV';    
- 
+  (2) **select** **distinct** lot_type **from** yth.v_etl_wip **where** target_toolg_id = 'DUV';     
+
+
+
+
+
