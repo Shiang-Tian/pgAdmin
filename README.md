@@ -386,6 +386,59 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | update_time  | 資料更新時間 |
 | update_user  | 資料更新者 |
 
+* **set_small_lot**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| tool_id  | 機台名稱 |
+| neighbor_lot  | 連續批數 |
+| demand_qty  | 連續最小片數 |
+
+* **set_lot_hold**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| lot_id  | Lot 名稱 |
+| pty | Lot 的優先順序 |
+| prod_id | Product ID |
+| plan_id | Process/Plan/Route ID |
+| step_id  | 站點編號 |
+| tool_id  | 機台名稱 |
+| ch_id  | Chamber 名稱 |
+| start_time  | 開始時間 |
+| end_time | 結束時間 |
+| action  | Lot Hold 類型 (禁用/ Assign) |
+| repeat_daily | 是否每日重複 |
+| lot_type  | Lot 類型 |
+| recipe  | 站點 Recipe |
+| ppid  | 機台 Recipe |
+| layer  | 製程層名稱 |
+| stage | 站點 Stage |
+| tech_id  | Technology Name |
+
+* **set_monitor**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| tool_id  | 機台名稱 |
+| ch_id  | Chamber 名稱 |
+| job_id  | Monitor Job 名稱 |
+| start_date  | Monitor 建立時間 |
+| end_date  | Monitor 截止時間 |
+| process_time  | Monitor Process Time |
+| reticle_id  | 光罩名稱 |
+| weekday  | Monitor 每週測機日 (1~7) |
+| update_time  | 資料更新時間 |
+| target_shift  | 班次 |
+| weekly_flag  | 週重複開關 |
+
+
 
 # __The script__
 ## __etl_tables__
@@ -569,8 +622,20 @@ Note: Different prod_id has differnt groups of numbers
 * **select** * **from** yth.etl_kpi_hourly **order by** update_time **desc** **limit** 100;
 
 ## __set_tables__
+### __set_ver_control__
 * **select** * **from** yth.v_set_ver_control;
-* **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_backup_report' **order by** update_time **desc** **limit** 100; 
+
+### __set_small_lot__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_small_lot' **order by** update_time **desc**;     
+* **select** * **from** yth.set_small_lot **where** parentid = '4da07a39-84e1-4f99-8834-139d82d872af';   
+
+### __set_lot_hold__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_lot_hold' **order by** update_time **desc**;     
+* **select** * **from** yth.set_lot_hold **where** parentid = 'a7e3f17a-f033-11ec-81a1-6fbc590a0e3f';  
+
+### __set_monitor__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_monitor' **order by** update_time **desc**;       
+* **select** * **from** yth.set_monitor **where** parentid = 'e816c920-062d-11ec-a078-d7f01e67cd54';    
 
 # __Another way to check the latest version__
 Except using **etl_ver_control** to check the latest version, you can use **v_** to check  
