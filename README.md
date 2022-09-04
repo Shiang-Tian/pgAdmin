@@ -438,6 +438,26 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | target_shift  | 班次 |
 | weekly_flag  | 週重複開關 |
 
+* **set_recipe_group**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| recipe  | 站點 Recipe |
+| recipe_group  | Recipe 群組名稱 |
+
+* **set_setup**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號)  |
+| toolg_id  | 機群名稱 |
+| tool_id  | 機台名稱 |
+| ch_id  | Chamber 名稱 |
+| seq  | 規則優先序 (小-->大) |
+| process_time  | Setup 處理時間 (單位：小時) |
+
 
 
 # __The script__
@@ -634,8 +654,14 @@ Note: Different prod_id has differnt groups of numbers
 * **select** * **from** yth.set_lot_hold **where** parentid = 'a7e3f17a-f033-11ec-81a1-6fbc590a0e3f';  
 
 ### __set_monitor__
-* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_monitor' **order by** update_time **desc**;       
-* **select** * **from** yth.set_monitor **where** parentid = 'e816c920-062d-11ec-a078-d7f01e67cd54';    
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_monitor' **order by** update_time **desc**;         
+* **select** * **from** yth.set_monitor **where** parentid = 'e816c920-062d-11ec-a078-d7f01e67cd54';      
+
+### __set_recipe_group__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_recipe_group' **order by** update_time **desc**;  
+* **select** * **from** yth.set_recipe_group **where** parentid = '68107ecc-da7d-11ec-8f5f-0bb88faf0213';        
+
+
 
 # __Another way to check the latest version__
 Except using **etl_ver_control** to check the latest version, you can use **v_** to check  
