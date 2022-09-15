@@ -16,7 +16,7 @@
     <li>
       <a href="#the-script">The script</a>
       <ul>
-        <li><a href="#etl tables">etl tables</a></li>
+        <li><a href="#etl_tables">etl_tables</a></li>
 	<ul>
 	<li><a href="#etl_flow">etl_flow</a></li>
 	<li><a href="#etl_qtime_spec">etl_qtime_spec</a></li>
@@ -37,7 +37,7 @@
 	<li><a href="#etl_kpi_daily">etl_kpi_daily</a></li>  
 	<li><a href="#etl_kpi_hourly">etl_kpi_hourly</a></li>
 	</ul> 
-	<li><a href="#set tables">set tables</a></li>
+	<li><a href="#set_tables">set_tables</a></li>
       </ul>
     </li>
     <li>
@@ -480,7 +480,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | process_cost | Setup 權重 |
 
 # __The script__
-## __etl tables__
+## __etl_tables__
 ### __etl_flow__
 **1. Select the newest version of etl_flow and extract 100 data**
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_flow' **order by** update_time **desc** **limit** 100;  
@@ -660,7 +660,7 @@ Note: Different prod_id has differnt groups of numbers
 ### __etl_kpi_hourly__
 * **select** * **from** yth.etl_kpi_hourly **order by** update_time **desc** **limit** 100;
 
-## __set tables__
+## __set_tables__
 ### __set_ver_control__
 * **select** * **from** yth.v_set_ver_control;
 
