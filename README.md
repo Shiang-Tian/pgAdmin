@@ -38,6 +38,14 @@
 	<li><a href="#etl_kpi_hourly">etl_kpi_hourly</a></li>
 	</ul> 
 	<li><a href="#set_tables">set_tables</a></li>
+	<ul>
+	<li><a href="#set_ver_control">set_ver_control</a></li>
+	<li><a href="#set_small_lot">set_small_lot</a></li>
+	<li><a href="#set_lot_hold">set_lot_hold</a></li>
+        <li><a href="#set_monitor">set_monitor</a></li>
+        <li><a href="#set_recipe_group">set_recipe_group</a></li>
+	<li><a href="#set_setup">set_setup</a></li>
+	</ul> 
       </ul>
     </li>
     <li>
@@ -680,7 +688,9 @@ Note: Different prod_id has differnt groups of numbers
 * **select** * **from** yth.set_ver_control **where** **table_name** = 'set_recipe_group' **order by** update_time **desc**;  
 * **select** * **from** yth.set_recipe_group **where** parentid = '68107ecc-da7d-11ec-8f5f-0bb88faf0213';        
 
-
+### __set_setup__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_setup' **order by** update_time **desc**;  
+* **select** * **from** yth.set_setup **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b'; 
 
 # __Another way to check the latest version__
 Except using **etl_ver_control** to check the latest version, you can use **v_** to check  
