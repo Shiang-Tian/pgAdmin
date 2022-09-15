@@ -14,7 +14,7 @@
       </ul>
     </li>
     <li>
-      <a href="#the-script">The script</a>
+      <a href="#the-syntax">The Syntax</a>
       <ul>
         <li><a href="#etl_tables">etl_tables</a></li>
 	<ul>
@@ -487,7 +487,7 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | ppid_next | 當前 Lot 的 EQP Recipe |
 | process_cost | Setup 權重 |
 
-# __The script__
+# __The Syntax__
 ## __etl_tables__
 ### __etl_flow__
 **1. Select the newest version of etl_flow and extract 100 data**
