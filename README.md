@@ -14,7 +14,11 @@
       </ul>
     </li>
     <li>
-      <a href="#the-script">The script</a> 
+      <a href="#the-script">The script</a>
+      <ul>
+        <li><a href="#etl-tables">etl tables</a></li>
+	<li><a href="#set-tables">set tables</a></li>
+      </ul>
       <ul>
         <li><a href="#etl_flow">etl_flow</a></li>
 	<li><a href="#etl_qtime_spec">etl_qtime_spec</a></li>
@@ -456,12 +460,27 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | tool_id  | 機台名稱 |
 | ch_id  | Chamber 名稱 |
 | seq  | 規則優先序 (小-->大) |
-| process_time  | Setup 處理時間 (單位：小時) |
-
-
+| process_time | Setup 處理時間 (單位：小時) |
+| prod_last | 前批 Lot 的 Product ID |
+| prod_next | 當前 Lot 的 Product ID |
+| plan_last | 前批 Lot 的 Route ID |
+| plan_next | 當前 Lot 的 Route ID |
+| layer_last | 前批 Lot 的 Layer |
+| layer_next | 當前 Lot 的 Layer |
+| stage_last | 前批 Lot 的 Stage |
+| stage_next | 當前 Lot 的 Stage |
+| recipe_last | 前批 Lot 的 Recipe |
+| recipe_next | 當前 Lot 的 Recipe |
+| recipe_group_last | 前批 Lot 的 Recipe Group |
+| recipe_group_next | 當前 Lot 的 Recipe Group |
+| recipe_setup_last | 前批 Lot 的 Recipe Setup |
+| recipe_setup_next | 當前 Lot 的 Recipe Setup |
+| ppid_last | 前批 Lot 的 EQP Recipe |
+| ppid_next | 當前 Lot 的 EQP Recipe |
+| process_cost | Setup 權重 |
 
 # __The script__
-## __etl_tables__
+## __etl tables__
 ### __etl_flow__
 **1. Select the newest version of etl_flow and extract 100 data**
 * **select** * **from** yth.etl_ver_control **where** **table_name** = 'etl_flow' **order by** update_time **desc** **limit** 100;  
@@ -641,7 +660,7 @@ Note: Different prod_id has differnt groups of numbers
 ### __etl_kpi_hourly__
 * **select** * **from** yth.etl_kpi_hourly **order by** update_time **desc** **limit** 100;
 
-## __set_tables__
+## __set tables__
 ### __set_ver_control__
 * **select** * **from** yth.v_set_ver_control;
 
