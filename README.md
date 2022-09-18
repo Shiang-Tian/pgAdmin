@@ -690,7 +690,20 @@ Note: Different prod_id has differnt groups of numbers
 
 ### __set_setup__
 * **select** * **from** yth.set_ver_control **where** **table_name** = 'set_setup' **order by** update_time **desc**;  
-* **select** * **from** yth.set_setup **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b'; 
+* **select** * **from** yth.set_setup **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b';     
+* **select** * **from** yth.set_setup **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b'
+**and** stage_next = ''  
+**and** ppid_next = ''  
+**order by** recipe_setup_next, recipe_setup_last;    
+* **select** * **from** yth.set_setup **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b'  
+**and** stage_next = ''  
+**and** ppid_next = ''
+**order by** process_time;  
+* **select** process_time, process_cost, * **from** yth.set_setup     
+**where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b'  
+**and** stage_next = ''    
+**and** ppid_next = ''  
+**order by** process_time;  
 
 # __Another way to check the latest version__
 Except using **etl_ver_control** to check the latest version, you can use **v_** to check  
