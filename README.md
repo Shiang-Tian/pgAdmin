@@ -756,15 +756,15 @@ Note: Different prod_id has differnt groups of numbers
 
 ### __set_backup_report__
 * **select** * **from** yth.set_ver_control **where** **table_name** = 'set_backup_report' **order by** update_time **desc**;   
-* **select** * **from** yth.set_backup_report where parentid = 'a47e5844-d00e-11ec-93c9-3bf99e383281';  
+* **select** * **from** yth.set_backup_report **where** parentid = 'a47e5844-d00e-11ec-93c9-3bf99e383281';  
 
 ### __set_system__
 * **select** * **from** yth.set_ver_control **where** **table_name** = 'set_system' **order by** update_time **desc**;     
-* **select** * **from** yth.set_system where parentid = '3296900a-f031-11ec-8278-33ffb447eb5d';    
+* **select** * **from** yth.set_system **where** parentid = '3296900a-f031-11ec-8278-33ffb447eb5d';    
 
 ### __set_wip_weighting__
 * **select** * **from** yth.set_ver_control **where** **table_name** = 'set_wip_weighting' **order by** update_time **desc**;  
-* **select** * **from** yth.set_wip_weighting where parentid = '84877e12-eb5c-11ec-81c7-4f7f7143ff37' **order by** pty;   
+* **select** * **from** yth.set_wip_weighting **where** parentid = '84877e12-eb5c-11ec-81c7-4f7f7143ff37' **order by** pty;   
 
 
 
