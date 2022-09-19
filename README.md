@@ -48,6 +48,7 @@
 	<li><a href="#set_backup_report">set_backup_report</a></li>
 	<li><a href="#set_system">set_system</a></li>
 	<li><a href="#set_wip_weighting">set_wip_weighting</a></li>
+	<li><a href="#set_tool_down">set_tool_down</a></li>
 	</ul> 
       </ul>
     </li>
