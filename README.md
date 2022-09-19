@@ -794,6 +794,14 @@ Except using **etl_ver_control** to check the latest version, you can use **v_**
   (2) **select** **distinct** lot_type **from** yth.v_etl_wip **where** target_toolg_id = 'DUV';     
 
 
+# __Data verification__
+## __etl_flow__
+
+
+
+
+
+
 
 
 
