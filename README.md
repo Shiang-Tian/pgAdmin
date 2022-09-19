@@ -9,8 +9,8 @@
     <li>
       <a href="#tables">Tables</a>
       <ul>
-        <li><a href="#etl tables">etl tables</a></li>
-	<li><a href="#set tables">set tables</a></li>
+        <li><a href="#etl-tables">etl tables</a></li>
+	<li><a href="#set-tables">set tables</a></li>
       </ul>
     </li>
     <li>
@@ -45,6 +45,9 @@
         <li><a href="#set_monitor">set_monitor</a></li>
         <li><a href="#set_recipe_group">set_recipe_group</a></li>
 	<li><a href="#set_setup">set_setup</a></li>
+	<li><a href="#set_backup_report">set_backup_report</a></li>
+	<li><a href="#set_system">set_system</a></li>
+	<li><a href="#set_wip_weighting">set_wip_weighting</a></li>
 	</ul> 
       </ul>
     </li>
@@ -487,6 +490,52 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | ppid_next | 當前 Lot 的 EQP Recipe |
 | process_cost | Setup 權重 |
 
+
+* **set_backup_report**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號) |
+| factory_id  | 工廠名稱|
+| commit_qty | 廠別可支援量 |
+| toolg_id  | 機群名稱 |
+| tool_model  | 外廠機台機型 |
+| tool_id  | 外廠機台名稱 |
+| safety_lb_coe  | 安全水位下限倍率 |
+| safety_ub_coe  | 安全水位上限倍率 |
+| update_time  | 資料更新時間 |
+
+* **set_system**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號) |
+| id  | ID |
+| propertyno  | 排程參數名稱 |
+| propertyvalue  | 參數數值 |
+| remark  | 備註 |
+
+* **set_wip_weighting**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號) |
+| toolg_id  | 機群名稱 |
+| lot_id  | Lot 名稱 |
+| pty | Lot 的優先順序 |
+| prod_id | Product ID |
+| step_id  | 站點編號 |
+| weighting  | 權重值 |
+| effective_time  | 生效時間 |
+| lot_type  | Lot 類型 |
+| long_stay  | Lot 到站多久之後考量權重 |
+| recipe  | 站點 Recipe |
+| stage  | 站點 Stage |
+| wait  | Lot 到站多久以內考量權重 |
+| tech_id  | Technology Name |
+
+
+
 # __The Syntax__
 ## __etl_tables__
 ### __etl_flow__
@@ -692,18 +741,32 @@ Note: Different prod_id has differnt groups of numbers
 * **select** * **from** yth.set_ver_control **where** **table_name** = 'set_setup' **order by** update_time **desc**;  
 * **select** * **from** yth.set_setup **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b';     
 * **select** * **from** yth.set_setup **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b'
-**and** stage_next = ''  
-**and** ppid_next = ''  
+**and** stage_next = ' '  
+**and** ppid_next = ' '    
 **order by** recipe_setup_next, recipe_setup_last;    
 * **select** * **from** yth.set_setup **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b'  
-**and** stage_next = ''  
-**and** ppid_next = ''
-**order by** process_time;  
+**and** stage_next = ' '  
+**and** ppid_next = ' '
+**order by** process_time;    
 * **select** process_time, process_cost, * **from** yth.set_setup     
 **where** parentid = '82e2f365-d0a1-481c-a396-c843c43ed36b'  
-**and** stage_next = ''    
-**and** ppid_next = ''  
+**and** stage_next = ' '    
+**and** ppid_next = ' '    
 **order by** process_time;  
+
+### __set_backup_report__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_backup_report' **order by** update_time **desc**;   
+* **select** * **from** yth.set_backup_report where parentid = 'a47e5844-d00e-11ec-93c9-3bf99e383281';  
+
+### __set_system__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_system' **order by** update_time **desc**;     
+* **select** * **from** yth.set_system where parentid = '3296900a-f031-11ec-8278-33ffb447eb5d';    
+
+### __set_wip_weighting__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_wip_weighting' **order by** update_time **desc**;  
+* **select** * **from** yth.set_wip_weighting where parentid = '84877e12-eb5c-11ec-81c7-4f7f7143ff37' **order by** pty;   
+
+
 
 # __Another way to check the latest version__
 Except using **etl_ver_control** to check the latest version, you can use **v_** to check  
