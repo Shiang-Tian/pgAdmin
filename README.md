@@ -534,6 +534,17 @@ This repository is a tutorial for __pgAdmin 4__, including the script for search
 | wait  | Lot 到站多久以內考量權重 |
 | tech_id  | Technology Name |
 
+* **set_tool_down**
+
+| Column  | Description |
+| ------------- | ------------- |
+| parentid  | Version number (版本號) |
+| toolg_id  | 機群名稱 |
+| tool_id  | 機台名稱 |
+| ch_id  | Chamber 名稱 |
+| down_start  | 當機起始時間 |
+| down_end  | 當機結束時間 |
+| remark  | 備註 |
 
 
 # __The Syntax__
@@ -766,6 +777,9 @@ Note: Different prod_id has differnt groups of numbers
 * **select** * **from** yth.set_ver_control **where** **table_name** = 'set_wip_weighting' **order by** update_time **desc**;  
 * **select** * **from** yth.set_wip_weighting **where** parentid = '84877e12-eb5c-11ec-81c7-4f7f7143ff37' **order by** pty;   
 
+### __set_tool_down__
+* **select** * **from** yth.set_ver_control **where** **table_name** = 'set_tool_down' **order by** update_time **desc**;    
+* **select** * **from** yth.set_tool_down **where** parentid = '31c1cf3e-4e68-11ec-ace7-6f0fb693468e';      
 
 
 # __Another way to check the latest version__
