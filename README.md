@@ -56,6 +56,12 @@
       <a href="#Another-way-to-check-the-latest-version">Another way to check the latest version</a>
     </li>
     <li>
+      <a href="#Data-verification">Data verification</a>
+      <ul>
+        <li><a href="#etl_flow">etl_flow</a></li>
+      </ul>
+    </li>    
+    <li>
       <a href="#the-instructions-for-this-database">The instructions for this database</a>
     </li>
     
