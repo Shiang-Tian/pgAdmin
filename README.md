@@ -60,11 +60,7 @@
       <ul>
         <li><a href="#etl-flow">etl flow</a></li>
       </ul>
-    </li>    
-    <li>
-      <a href="#the-instructions-for-this-database">The instructions for this database</a>
-    </li>
-    
+    </li>      
   </ol>
 </details>
 
