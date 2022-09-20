@@ -798,7 +798,10 @@ Except using **etl_ver_control** to check the latest version, you can use **v_**
 
 # __Data verification__
 ## __etl flow__
-
+* **select** * **from** yth.v_etl_flow **order by** prod_id, plan_no, step_id **limit** 1000;  
+with t1 **as** (**select** **row_number()** **over** (**partition by** prod_id, plan_id, plan_no, step_id **order by** cycle_time) **as** rtn
+* **from** yth.v_etl_flow)  
+**select** **count** (*)
 
 
 
